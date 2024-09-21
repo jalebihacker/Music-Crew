@@ -1,0 +1,200 @@
+<html>
+<head>
+    <base href="https://musiccrewhub.com/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Crew Hub</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Righteous&display=swap');
+
+        body {
+            font-family: 'Righteous', cursive;
+            background: linear-gradient(45deg, #FF6B6B, #4ECDC4, #45B7D1, #FDCB6E);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            max-width: 800px;
+            width: 90%;
+        }
+
+        h1, h2 {
+            font-family: 'Bangers', cursive;
+            color: #2C3E50;
+            text-align: center;
+        }
+
+        .welcome-message {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .musician-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .musician-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .musician-card:hover {
+            transform: scale(1.05);
+        }
+
+        .musician-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-box {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 1rem;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            z-index: 10;
+            width: 80%;
+            max-width: 600px;
+            white-space: pre-line; /* Preserve line breaks */
+            text-align: left; /* Align text to the left */
+        }
+
+        .back-button {
+            background: #FF6B6B;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: #FF4757;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 class="welcome-message">Welcome to the Music Crew Hub!</h1>
+
+    <div id="content">
+        <div class="musician-grid">
+            <div class="musician-card" onclick="showInfo('Aryam')">
+                <img src="https://cdn.discordapp.com/attachments/1160164943665057905/1287091603587989596/Aryam.png?ex=66f048f7&is=66eef777&hm=9e0135eb87aa53053a30628a3987d543794cd7bdffcc6b4ac30d5ca60504b74c&" alt="Cartoon avatar of a musician with spiky hair and sunglasses" class="musician-avatar">
+                <h3>Aryam</h3>
+                <p>Guitar Virtuoso (Kinda)</p>
+            </div>
+            <div class="musician-card" onclick="showInfo('Amogh')">
+                <img src="https://cdn.discordapp.com/attachments/1160164943665057905/1287091603093196873/Amogh.png?ex=66f048f7&is=66eef777&hm=f74cb86db75ff272076faf3b5eb43accb80f54a1a665914256c0f2c59ad5040e&" alt="Cartoon avatar of a musician with long hair and a peace sign necklace" class="musician-avatar">
+                <h3>Amogh</h3>
+                <p>Group’s Meme Star</p>
+            </div>
+            <div class="musician-card" onclick="showInfo('Tejaswee')">
+                <img src="https://cdn.discordapp.com/attachments/1160164943665057906/1287097755432521818/image.png?ex=66f04eb2&is=66eefd32&hm=7db53ab01d7f038470beb51f4b025aeb0873bb3a39ff8e9650f1f48114162e65&" alt="Cartoon avatar of a musician with a microphone" class="musician-avatar">
+                <h3>Tejaswee</h3>
+                <p>Base Voice King</p>
+            </div>
+            <div class="musician-card" onclick="showInfo('Tanmay')">
+                <img src="https://cdn.discordapp.com/attachments/1160164943665057905/1287091602744938576/Tanmay.png?ex=66f048f7&is=66eef777&hm=c2f9b19312d336cf29a206e511908cfb6d30f72ea6aa8f299a5d7ae658cf6a42&" alt="Cartoon avatar of a musician playing piano" class="musician-avatar">
+                <h3>Tanmay</h3>
+                <p>Piano Prodigy (Sometimes)</p>
+            </div>
+            <div class="musician-card" onclick="showInfo('Hitanshu')">
+                <img src="https://cdn.discordapp.com/attachments/1160164943665057905/1287091604469059624/Hitanshu.jpg?ex=66f048f7&is=66eef777&hm=1d477103f9d8cc72eb0b94ffc4ec98cc0f82db0121643cfc70157a227d5f595c&" alt="Cartoon avatar of a musician holding a mic" class="musician-avatar">
+                <h3>Hitanshu</h3>
+                <p>Wannabe Singer</p>
+            </div>
+            <div class="musician-card" onclick="showInfo('Grishma')">
+                <img src="https://cdn.discordapp.com/attachments/1160164943665057905/1287091604049494046/Grishma.png?ex=66f048f7&is=66eef777&hm=71c6c8dde940640cae66a72306eb4d302cac72cccc27324117b4bb841e937851&" alt="Cartoon avatar of a musician with an iPhone" class="musician-avatar">
+                <h3>Grishma</h3>
+                <p>Mischief Master</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="info-box" id="infoBox">
+        <h2 id="infoTitle"></h2>
+        <p id="infoContent"></p>
+        <button class="back-button" onclick="hideInfo()">Back</button>
+    </div>
+</div>
+
+<script>
+const musicianInfo = {
+    Aryam: `Guitar Virtuoso (Kinda): Can shred the guitar like a pro, but when it comes to singing... let's just say he tries! 🎸🎤
+
+German Explorer: Obsessed with learning German and traveling—probably planning his next adventure right now. 🌍
+
+Drama King: Known for rage-quitting the WhatsApp group for the tiniest reasons. Don't take it personally; he'll be back! 😤👋
+
+Performance Mishap Legend: Who could forget the time he broke his guitar string right before the show? #ClassicAryam. 🎸💥`,
+    Amogh: `Group’s Meme Star: If there’s a meme in the group, it’s probably about him. He’s the funniest guy who always ends up as the punchline! 🤣
+
+Ladies' Man (But Denies It): He’s always trying (and failing?) to impress girls but will never admit it. Cue the teasing! 😎💔
+
+Guitar Dreamer: Wants to play guitar but can't quite get there yet—don’t worry, we still love you! 🎸❌
+
+Vibe Check: The life of the party, with a voice that can make you laugh for hours. 🎤😂`,
+    Tejaswee: `Base Voice King: Deep, powerful voice that stands out, especially with that unmistakable Keralite accent. 🎤🎶
+
+Relationship Roast Target: No one escapes the teasing, especially when you're in a relationship—Tejaswee knows this all too well! 💑😂
+
+Emoji SUSpect: Sometimes reacts in the chat with SUS emojis, leading to jokes about his, uh, interesting behavior. 🧐🌈`,
+    Tanmay: `Piano Prodigy (Sometimes): He can play the piano like a dream, but... might forget the chords now and then. 🎹🤔
+
+Stage Fright Fumbles: Occasionally messes up during practice due to nerves, but he's still one chill dude. 😎🎵
+
+Mr. Cool: Always relaxed and never takes things too seriously—except maybe when he’s trying to remember those chords! 🌴🎶`,
+    Hitanshu: `Wannabe Singer: Singing is his hobby, but it’s more about the passion than the volume—his singing is softer than a whisper. 🎤🤐
+
+Vada Pav Lover: A true foodie who can’t resist a good Vada Pav. His love for food is only matched by his love for chatting. 🍔😋
+
+Quiet Singer, Loud Talker: You can barely hear him when he sings, but when he talks, he could practically deafen you. 🎤🔊`,
+    Grishma: `Mischief Master: Always up to something—usually creating memes or pulling pranks on everyone else. 🧠🎭
+
+Behind the Scenes Diva: Loves to record sneaky behind-the-scenes videos of practices without anyone noticing. 🎥📸
+
+iPhone Show-Off: Never misses a chance to flash that iPhone and let everyone know who’s got the best tech. 📱💁‍♀️`
+};
+
+function showInfo(name) {
+    document.getElementById('infoTitle').innerText = name;
+    document.getElementById('infoContent').innerText = musicianInfo[name];
+    document.getElementById('infoBox').style.display = 'block';
+    document.getElementById('content').style.display = 'none'; // Hide profiles
+}
+
+function hideInfo() {
+    document.getElementById('infoBox').style.display = 'none'; // Hide info box
+    document.getElementById('content').style.display = 'block'; // Show profiles
+}
+</script>
+</body>
+</html>
